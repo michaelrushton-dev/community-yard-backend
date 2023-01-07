@@ -1,3 +1,5 @@
+//ROUTES FOR USERS
+
 import express from 'express';
 import { getAllUsers, postNewUser } from '../funcs/userFuncs.js';
 const router = express.Router();
