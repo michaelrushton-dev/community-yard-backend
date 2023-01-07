@@ -1,8 +1,19 @@
+import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import usersRoute from './routes/users.js';
+import foodbanksRoute from './routes/foodbanks.js';
 dotenv.config();
+const app = express();
 
-//remember to un-comment the calling/execution of the async function below! called: run()
+app.use(express.json());
+
+app.use('/users', usersRoute);
+app.use('/foodbanks', foodbanksRoute);
+
+app.get('/', (req, res) => {
+    res.send('we are on home');
+});
 
 mongoose.set('strictQuery', false);
 
@@ -14,3 +25,5 @@ mongoose.connect(
     },
     (e) => console.error(e)
 );
+
+app.listen(3000);
