@@ -1,10 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+dotenv.config();
 import usersRoute from './routes/users.js';
 import foodbanksRoute from './routes/foodbanks.js';
-dotenv.config();
+
+import cors from 'cors'
+
 const app = express();
+app.use(cors())
 
 app.use(express.json());
 
