@@ -39,3 +39,8 @@ export async function postNewFoodbank(req) {
         console.log(error);
     }
 }
+
+export async function updateFoodbank(foodbankId, req) {
+    await Foodbanks.replaceOne({ _id: foodbankId }, { ...req.body });
+    console.log(req.body);
+}

@@ -5,10 +5,10 @@ dotenv.config();
 import usersRoute from './routes/users.js';
 import foodbanksRoute from './routes/foodbanks.js';
 
-import cors from 'cors'
+import cors from 'cors';
 
 const app = express();
-app.use(cors())
+app.use(cors());
 
 app.use(express.json());
 
