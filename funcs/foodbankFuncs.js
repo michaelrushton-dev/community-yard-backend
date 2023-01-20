@@ -44,3 +44,11 @@ export async function updateFoodbank(foodbankId, req) {
     await Foodbanks.replaceOne({ _id: foodbankId }, { ...req.body });
     console.log(req.body);
 }
+
+export async function deleteFoodbank(foodbankId, req) {
+    try {
+        await Foodbanks.deleteOne( { "_id" : foodbankId } );
+     } catch (e) {
+        console.log(e);
+     }
+}

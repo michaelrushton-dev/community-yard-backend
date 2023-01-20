@@ -5,6 +5,7 @@ import {
     getAllFoodbanks,
     postNewFoodbank,
     updateFoodbank,
+    deleteFoodbank
 } from '../funcs/foodbankFuncs.js';
 const router = express.Router();
 
@@ -25,4 +26,11 @@ router.put('/:id', async (req, res) => {
     updateFoodbank(foodbankId, req);
     return res.json({ success: true, payload: req.body });
 });
+
+router.delete('/:id', async (req, res) => {
+    const foodbankId = req.params.id;
+    deleteFoodbank(foodbankId, req);
+    return res.json({success: true, payload: `Deleted: ${{...req.body}}`})
+})
+
 export default router;
